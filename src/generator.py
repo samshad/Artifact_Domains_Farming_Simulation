@@ -1,7 +1,8 @@
 import random
 import attr as name_map
-import flower as flower
-import plume as plume
+import flower
+import plume
+import sands
 
 
 def get_type():
@@ -18,5 +19,9 @@ if __name__ == "__main__":
             break
         elif artifact_type == "plume":
             x = plume.get_plume()
+            print(x)
+            break
+        elif artifact_type == "sands":
+            x = sands.get_sands()
             print(x)
             break
