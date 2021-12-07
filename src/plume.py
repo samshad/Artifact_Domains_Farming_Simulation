@@ -4,16 +4,16 @@ import attr as name_map
 
 
 def get_substat():
-    substats = ["atk", "def", "hpp", "atkp", "defp", "er", "em", "cr", "cd"]
+    substats = ["hp", "def", "hpp", "atkp", "defp", "er", "em", "cr", "cd"]
     w = [15.79, 15.79, 10.53, 10.53, 10.53, 10.53, 10.53, 7.89, 7.89]
     return random.choices(substats, weights=w, k=1)[0]
 
 
-def get_flower():
+def get_plume():
     substats_count = random.choices([3, 4], [0.8, 0.2], k=1)[0]
 
     substats = []
-    mainstat_value = 717
+    mainstat_value = 47
     cnt = 0
     already_got = []
     while cnt < substats_count:
@@ -24,8 +24,8 @@ def get_flower():
             already_got.append(curr_substat)
             cnt += 1
     return {
-        "type": "Flower of Life",
-        "mainstat": "HP",
+        "type": "Plume of Death",
+        "mainstat": "ATK",
         "mainstat_value": mainstat_value,
         "substats": substats,
         "substats_count": substats_count,

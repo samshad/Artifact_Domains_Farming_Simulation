@@ -1,6 +1,7 @@
 import random
-import src.attr as name_map
+import attr as name_map
 import flower as flower
+import plume as plume
 
 
 def get_type():
@@ -10,9 +11,12 @@ def get_type():
 
 if __name__ == "__main__":
     while True:
-        type = get_type()
-        if type == "flower":
-            x = flower.flower_substats()
-            for i in x:
-                print(name_map.abbr[i[0]], round(i[1], 1))
+        artifact_type = get_type()
+        if artifact_type == "flower":
+            x = flower.get_flower()
+            print(x)
+            break
+        elif artifact_type == "plume":
+            x = plume.get_plume()
+            print(x)
             break
