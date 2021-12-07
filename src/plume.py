@@ -1,6 +1,6 @@
 import random
-import substat_values as sv
-import attr as name_map
+import src.substat_values as sv
+import src.attr as name_map
 
 
 def get_substat():

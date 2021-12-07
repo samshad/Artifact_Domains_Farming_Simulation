@@ -1,8 +1,9 @@
 import random
-import attr as name_map
-import flower
-import plume
-import sands
+import src.flower as flower
+import src.plume as plume
+import src.sands as sands
+import src.goblet as goblet
+import src.circlet as circlet
 
 
 def get_type():
@@ -10,18 +11,23 @@ def get_type():
     return random.choices(types, k=1)[0]
 
 
-if __name__ == "__main__":
-    while True:
-        artifact_type = get_type()
-        if artifact_type == "flower":
-            x = flower.get_flower()
-            print(x)
-            break
-        elif artifact_type == "plume":
-            x = plume.get_plume()
-            print(x)
-            break
-        elif artifact_type == "sands":
-            x = sands.get_sands()
-            print(x)
-            break
+def get_artifact():
+    artifact_type = get_type()
+
+    if artifact_type == "flower":
+        x = flower.get_flower()
+        return x
+    elif artifact_type == "plume":
+        x = plume.get_plume()
+        return x
+    elif artifact_type == "sands":
+        x = sands.get_sands()
+        return x
+    elif artifact_type == "goblet":
+        x = goblet.get_goblet()
+        return x
+    else:
+        x = circlet.get_circlet()
+        return x
+
+
