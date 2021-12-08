@@ -67,7 +67,7 @@ def get_circlet():
         curr_substat = get_substat(mainstat)
         if curr_substat not in already_got:
             val = sv.get_value(curr_substat)
-            substats.append((name_map.abbr[curr_substat], val))
+            substats.append([name_map.abbr[curr_substat], val])
             already_got.append(curr_substat)
             cnt += 1
     return {

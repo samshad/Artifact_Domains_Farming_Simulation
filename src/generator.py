@@ -13,21 +13,23 @@ def get_type():
 
 def get_artifact():
     artifact_type = get_type()
+    x = dict()
+    x['canlevelup'] = True
 
     if artifact_type == "flower":
-        x = flower.get_flower()
+        x.update(flower.get_flower())
         return x
     elif artifact_type == "plume":
-        x = plume.get_plume()
+        x.update(plume.get_plume())
         return x
     elif artifact_type == "sands":
-        x = sands.get_sands()
+        x.update(sands.get_sands())
         return x
     elif artifact_type == "goblet":
-        x = goblet.get_goblet()
+        x.update(goblet.get_goblet())
         return x
     else:
-        x = circlet.get_circlet()
+        x.update(circlet.get_circlet())
         return x
 
 
