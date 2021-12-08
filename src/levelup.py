@@ -78,105 +78,112 @@ def Levelup(artifact):
     if not artifact['canlevelup']:
         return artifact
 
-    if artifact['levelup'] == 0:
-        if artifact['substats_count'] == 3:
-            if name_map.abbr_rev[artifact['type']] == "flower":
-                cur_substats = []
-                for stat in artifact['substats']:
-                    cur_substats.append(name_map.abbr_rev[stat[0]])
+    if artifact['substats_count'] == 3:
+        if name_map.abbr_rev[artifact['type']] == "flower":
+            cur_substats = []
+            for stat in artifact['substats']:
+                cur_substats.append(name_map.abbr_rev[stat[0]])
 
-                new_substat = ''
-                while True:
-                    new_substat = flower.get_substat()
-                    if new_substat not in cur_substats:
-                        break
+            new_substat = ''
+            while True:
+                new_substat = flower.get_substat()
+                if new_substat not in cur_substats:
+                    break
 
-                new_substat_v = sv.get_value(new_substat)
-                artifact['substats'].append([name_map.abbr[new_substat], new_substat_v])
-                artifact['substats_count'] = 4
+            new_substat_v = sv.get_value(new_substat)
+            artifact['substats'].append([name_map.abbr[new_substat], new_substat_v])
+            artifact['substats_count'] = 4
 
-                artifact['level'] += 4
-                artifact['mainstat_value'] = get_mainstat_increment(
-                    name_map.abbr_rev[artifact['mainstat']], artifact['level'])
+            artifact['level'] += 4
+            artifact['mainstat_value'] = get_mainstat_increment(
+                name_map.abbr_rev[artifact['mainstat']], artifact['level'])
 
-            elif name_map.abbr_rev[artifact['type']] == "plume":
-                cur_substats = []
-                for stat in artifact['substats']:
-                    cur_substats.append(name_map.abbr_rev[stat[0]])
+        elif name_map.abbr_rev[artifact['type']] == "plume":
+            cur_substats = []
+            for stat in artifact['substats']:
+                cur_substats.append(name_map.abbr_rev[stat[0]])
 
-                new_substat = ''
-                while True:
-                    new_substat = plume.get_substat()
-                    if new_substat not in cur_substats:
-                        break
+            new_substat = ''
+            while True:
+                new_substat = plume.get_substat()
+                if new_substat not in cur_substats:
+                    break
 
-                new_substat_v = sv.get_value(new_substat)
-                artifact['substats'].append([name_map.abbr[new_substat], new_substat_v])
-                artifact['substats_count'] = 4
+            new_substat_v = sv.get_value(new_substat)
+            artifact['substats'].append([name_map.abbr[new_substat], new_substat_v])
+            artifact['substats_count'] = 4
 
-                artifact['level'] += 4
-                artifact['mainstat_value'] = get_mainstat_increment(
-                    name_map.abbr_rev[artifact['mainstat']], artifact['level'])
+            artifact['level'] += 4
+            artifact['mainstat_value'] = get_mainstat_increment(
+                name_map.abbr_rev[artifact['mainstat']], artifact['level'])
 
-            elif name_map.abbr_rev[artifact['type']] == "sands":
-                cur_substats = []
-                for stat in artifact['substats']:
-                    cur_substats.append(name_map.abbr_rev[stat[0]])
+        elif name_map.abbr_rev[artifact['type']] == "sands":
+            cur_substats = []
+            for stat in artifact['substats']:
+                cur_substats.append(name_map.abbr_rev[stat[0]])
 
-                new_substat = ''
-                while True:
-                    new_substat = sands.get_substat(name_map.abbr_rev[artifact['mainstat']])
-                    if new_substat not in cur_substats:
-                        break
+            new_substat = ''
+            while True:
+                new_substat = sands.get_substat(name_map.abbr_rev[artifact['mainstat']])
+                if new_substat not in cur_substats:
+                    break
 
-                new_substat_v = sv.get_value(new_substat)
-                artifact['substats'].append([name_map.abbr[new_substat], new_substat_v])
-                artifact['substats_count'] = 4
+            new_substat_v = sv.get_value(new_substat)
+            artifact['substats'].append([name_map.abbr[new_substat], new_substat_v])
+            artifact['substats_count'] = 4
 
-                artifact['level'] += 4
-                artifact['mainstat_value'] = get_mainstat_increment(
-                    name_map.abbr_rev[artifact['mainstat']], artifact['level'])
+            artifact['level'] += 4
+            artifact['mainstat_value'] = get_mainstat_increment(
+                name_map.abbr_rev[artifact['mainstat']], artifact['level'])
 
-            elif name_map.abbr_rev[artifact['type']] == "goblet":
-                cur_substats = []
-                for stat in artifact['substats']:
-                    cur_substats.append(name_map.abbr_rev[stat[0]])
+        elif name_map.abbr_rev[artifact['type']] == "goblet":
+            cur_substats = []
+            for stat in artifact['substats']:
+                cur_substats.append(name_map.abbr_rev[stat[0]])
 
-                new_substat = ''
-                while True:
-                    new_substat = goblet.get_substat(name_map.abbr_rev[artifact['mainstat']])
-                    if new_substat not in cur_substats:
-                        break
+            new_substat = ''
+            while True:
+                new_substat = goblet.get_substat(name_map.abbr_rev[artifact['mainstat']])
+                if new_substat not in cur_substats:
+                    break
 
-                new_substat_v = sv.get_value(new_substat)
-                artifact['substats'].append([name_map.abbr[new_substat], new_substat_v])
-                artifact['substats_count'] = 4
+            new_substat_v = sv.get_value(new_substat)
+            artifact['substats'].append([name_map.abbr[new_substat], new_substat_v])
+            artifact['substats_count'] = 4
 
-                artifact['level'] += 4
-                artifact['mainstat_value'] = get_mainstat_increment(
-                    name_map.abbr_rev[artifact['mainstat']], artifact['level'])
-
-            else:
-                cur_substats = []
-                for stat in artifact['substats']:
-                    cur_substats.append(name_map.abbr_rev[stat[0]])
-
-                new_substat = ''
-                while True:
-                    new_substat = circlet.get_substat(name_map.abbr_rev[artifact['mainstat']])
-                    if new_substat not in cur_substats:
-                        break
-
-                new_substat_v = sv.get_value(new_substat)
-                artifact['substats'].append([name_map.abbr[new_substat], new_substat_v])
-                artifact['substats_count'] = 4
-
-                artifact['level'] += 4
-                artifact['mainstat_value'] = get_mainstat_increment(
-                    name_map.abbr_rev[artifact['mainstat']], artifact['level'])
+            artifact['level'] += 4
+            artifact['mainstat_value'] = get_mainstat_increment(
+                name_map.abbr_rev[artifact['mainstat']], artifact['level'])
 
         else:
-            artifact = Levelup_onetime(artifact)
+            cur_substats = []
+            for stat in artifact['substats']:
+                cur_substats.append(name_map.abbr_rev[stat[0]])
+
+            new_substat = ''
+            while True:
+                new_substat = circlet.get_substat(name_map.abbr_rev[artifact['mainstat']])
+                if new_substat not in cur_substats:
+                    break
+
+            new_substat_v = sv.get_value(new_substat)
+            artifact['substats'].append([name_map.abbr[new_substat], new_substat_v])
+            artifact['substats_count'] = 4
+
+            artifact['level'] += 4
+            artifact['mainstat_value'] = get_mainstat_increment(
+                name_map.abbr_rev[artifact['mainstat']], artifact['level'])
+
+        if artifact['levelup'] == 0:
+            return artifact
+
+        else:
+            while artifact['level'] < 20:
+                artifact = Levelup_onetime(artifact)
+            return artifact
+
+    if artifact['levelup'] == 0:
+        artifact = Levelup_onetime(artifact)
 
     else:
         while artifact['level'] < 20:
