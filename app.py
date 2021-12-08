@@ -2,10 +2,22 @@ from fastapi import FastAPI
 import src.generator as gen
 import src.levelup as levelup
 from postdata import LevelData
+from fastapi.middleware.cors import CORSMiddleware
 
 
 app = FastAPI()
 cur_artifact = {}
+
+
+origins = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.get('/')
@@ -38,4 +50,4 @@ def get_job_details(data: LevelData):
 
 
 # uvicorn app:app --reload
-# uvicorn app:app --host 0.0.0.0 --port 2357
+# uvicorn app:app --reload --host 0.0.0.0 --port 8000
