@@ -12,7 +12,7 @@ cur_artifact = {}
 def index():
     return {
         'message': 'API up and running',
-        'endpoints': ['/get_artifact', '/cur_artifact']
+        'endpoints': ['/get_artifact', '/cur_artifact', '/levelup']
     }
 
 
@@ -33,6 +33,7 @@ def get_cur_artifact():
 @app.post('/levelup')
 def get_job_details(data: LevelData):
     ret = data.dict()
+    print("test", ret)
     cur_artifact['levelup'] = ret['data']
     return levelup.Levelup(cur_artifact)
 
