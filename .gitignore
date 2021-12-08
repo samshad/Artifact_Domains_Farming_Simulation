@@ -130,3 +130,5 @@ dmypy.json
 .idea/
 00.py
 script.js
+index.html
+style.css
