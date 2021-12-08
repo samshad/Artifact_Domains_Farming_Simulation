@@ -33,7 +33,6 @@ def get_cur_artifact():
 @app.post('/levelup')
 def get_job_details(data: LevelData):
     ret = data.dict()
-    print("test", ret)
     cur_artifact['levelup'] = ret['data']
     return levelup.Levelup(cur_artifact)
 
