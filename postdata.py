@@ -5,7 +5,7 @@ from typing import Optional
 class LevelData(BaseModel):
     canlevelup: bool
     level: int
-    levelup: Optional[int]
+    levelup: int
     mainstat: str
     mainstat_value: float
     substats: list
