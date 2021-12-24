@@ -6,7 +6,6 @@ from fastapi.middleware.cors import CORSMiddleware
 
 
 app = FastAPI()
-cur_artifact = {}
 
 
 origins = ["*"]
@@ -24,7 +23,7 @@ app.add_middleware(
 def index():
     return {
         'message': 'API up and running',
-        'endpoints': ['/get_artifact', '/cur_artifact', '/levelup']
+        'endpoints': ['/get_artifact', '/levelup']
     }
 
 
@@ -33,20 +32,15 @@ def get_artifact():
     ret = gen.get_artifact()
     global cur_artifact
     cur_artifact = ret
+    # print(cur_artifact)
     return ret
-
-
-@app.get('/cur_artifact')
-def get_cur_artifact():
-    global cur_artifact
-    return cur_artifact
 
 
 @app.post('/levelup')
 def get_job_details(data: LevelData):
     ret = data.dict()
-    cur_artifact['levelup'] = ret['data']
-    return levelup.Levelup(cur_artifact)
+    print(ret)
+    return levelup.Levelup(ret)
 
 
 # uvicorn app:app --reload
