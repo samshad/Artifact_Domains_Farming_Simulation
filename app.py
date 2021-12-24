@@ -30,9 +30,6 @@ def index():
 @app.get('/get_artifact')
 def get_artifact():
     ret = gen.get_artifact()
-    global cur_artifact
-    cur_artifact = ret
-    # print(cur_artifact)
     return ret
 
 
